@@ -1,0 +1,42 @@
+# Project settings
+name: jaffle_shop                   # Name of the dbt project
+config-version: 2                      # dbt config version (typically 2)
+version: 1.0.8                           # Version of your dbt project
+
+# Profile to use (defined in profiles.yml)
+profile: my_profile                    # Profile name from profiles.yml
+
+# Paths to models, seeds, tests, and macros
+model-paths: ["models"]                # Path where dbt models are stored
+seed-paths: ["seeds"]                  # Path where seed files are stored
+test-paths: ["tests"]                  # Path where test files are located
+analysis-paths: ["analysis"]           # Path where analysis files are stored
+macro-paths: ["macros"]                # Path where macros are located
+snapshot-paths: ["snapshots"]          # Path where snapshots are stored
+docs-paths: ["docs"]                   # Path where documentation is stored
+asset-paths: ["assets"]                # Path for project assets (if any)
+
+# Other paths and configuration settings
+packages-install-path: "dbt_packages"  # Directory for installed packages
+clean-targets: ["target"]              # Directories to be cleaned during `dbt clean`
+
+
+require-dbt-version: ">=1.0.0"         # Required dbt version
+
+# dbt Cloud project configuration (if using dbt Cloud)
+dbt-cloud:
+  project-id: 123456                   # dbt Cloud project ID
+  defer-env-id: 7890                   # Optional deferred environment ID
+
+# Quoting settings (adjust for your database requirements)
+quoting:
+  database: true
+  schema: true
+  identifier: true
+#making all models in the jaffle_shop to have materialized : view
+models:
+  jaffle_shop:
+    marts:
+      materialized: table
+    staging:
+      materialized: view  

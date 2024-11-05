@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: DL_LISA
+    schema: DBT_RAW_STRIPE
+    tables:
+      - name: PAYMENT
