@@ -13,7 +13,7 @@ test-paths: ["tests"]                  # Path where test files are located
 analysis-paths: ["analysis"]           # Path where analysis files are stored
 macro-paths: ["macros"]                # Path where macros are located
 snapshot-paths: ["snapshots"]          # Path where snapshots are stored
-docs-paths: ["docs"]                   # Path where documentation is stored
+#docs-paths: ["docs"]                   # Path where documentation is stored
 asset-paths: ["assets"]                # Path for project assets (if any)
 
 # Other paths and configuration settings
