@@ -6,14 +6,18 @@ sources:
     schema: DBT_RAW_JAFFLE_SHOP
     tables:
       - name: CUSTOMERS
+        description: Raw customers data.
         columns:
           - name: id
+            description: Primary key for customers.
             data_tests:
               - unique
               - not_null
       - name: ORDERS
+        description: Raw orders data.
         columns:
           - name: id
+            description: Primary key for orders.
             data_tests:
               - unique              
               - not_null

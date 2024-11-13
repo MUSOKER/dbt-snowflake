@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: stg_people
+    columns: 
+      - name: pid
+        description: Unique identifier of the person.
+        data_tests:
+          - unique
+          - not_null

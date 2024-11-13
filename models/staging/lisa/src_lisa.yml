@@ -1,0 +1,238 @@
+version: 2
+
+sources:
+  - name: lisa
+    database: DL_LISA
+    schema: IMPORT
+    tables:
+      - name: PEOPLE
+        description: Raw people data.
+        columns:
+          - name: GUID
+            description: "Primary key for customers."
+            data_type: GUID
+            data_tests:
+              - unique
+              - not_nul
+          - name: PID
+            description: "Unique identifier of the person."
+            data_type: INT
+            data_tests:
+              - unique
+              - not_null
+          - name: FIRSTNAME
+            description: "First name of the individual."
+            data_type: VARCHAR
+          - name: MIDDLENAME
+            description: "Middle name of the individual, if provided."
+            data_type: VARCHAR
+          - name: LASTNAME
+            description: "Last name of the individual."
+            data_type: VARCHAR
+          - name: NAMELIKES
+            description: "Nicknames or alternative names commonly used for this individual."
+            data_type: VARCHAR
+          - name: FIRSTCONTACTEVENTID
+            description: "Event ID associated with the first contact with the individual."
+            data_type: INT
+          - name: AGE
+            description: "Current age of the individual, based on DATEOFBIRTH."
+            data_type: INT
+          - name: AGEPROVIDEDONDATE
+            description: "The age of the individual as provided on a specific date."
+            data_type: TIMESTAMP
+          - name: GENDER
+            description: "Gender of the individual."
+            data_type: INT
+          - name: CURRENTRECORDSTATE
+            description: "Indicates the status of the individual record."
+            data_type: VARCHAR
+          - name: GRADSTATUS
+            description: "Graduation status of the individual."
+            data_type: VARCHAR
+          - name: NEVERCONTACT
+            description: "Flag indicating if the individual should never be contacted."
+            data_type: BOOLEAN
+            data_tests:
+               - acceptable_values:
+                  value: ['FALSE', 'TRUE']
+          - name: DECEASED
+            description: "Flag indicating if the individual is deceased."
+            data_type: BOOLEAN
+          - name: PRIMARYEMAILADDRESS
+            description: "Primary email address for contacting the individual."
+            data_type: VARCHAR
+          - name: SECONDARYEMAILADDRESS
+            description: "Secondary email address if available."
+            data_type: VARCHAR
+          - name: DONOTEMAIL
+            description: "Flag indicating if the individual should not receive emails."
+            data_type: BOOLEAN
+          - name: EMAILABLE
+            description: "Indicates if the individual should be included from email communications."
+            data_type: BOOLEAN        
+          - name: CREATEDATE
+            description: "Date when the record was last updated."
+            data_type: TIMESTAMP
+          - name: CREATEDBY
+            description: "PID of the person who created the record."
+            data_type: INT
+          - name: LASTUPDATEDATE
+            description: "Date when the record was last updated."
+            data_type: TIMESTAMP
+          - name: LASTUPDATEDBY
+            description: "PID of the person who last updated the record."
+            data_type: INT
+          - name: INTRODUCEDBY
+            description: "PID of the person who introduced the individual to the program."
+            data_type: INT
+          - name: WEBUSERID
+            description: "Unique identifier for the web portal user account."
+            data_type: VARCHAR
+          - name: WEBUSERPASSWORD
+            description: "Encrypted password for web portal access."
+            data_type: VARCHAR
+          - name: DATEOFBIRTH
+            description: "Date of birth of the person."
+            data_type: DATE
+          - name: PARTICIPATIONPREFERENCECITYID
+            description: "Preferred city ID for participation."
+            data_type: VARCHAR
+          - name: PARTICIPATIONPREFERENCECENTERID
+            description: "Preferred center ID for participation."
+            data_type: VARCHAR
+          - name: MARITALSTATUS
+            description: "Marital status of the person."
+            data_type: VARCHAR
+          - name: OCCUPATION
+            description: "Job or occupation title."
+            data_type: VARCHAR
+          - name: JOBTITLE
+            description: "Specific title of the person’s job."
+            data_type: VARCHAR
+          - name: RETIRED
+            description: "Indicates if the person is retired."
+            data_type: BOOLEAN
+          - name: LANGUAGEPREFERENCE1
+            description: "Primary language for communication."
+            data_type: VARCHAR
+          - name: LANGUAGEPREFERENCE2
+            description: "Secondary language for communication, if applicable."
+            data_type: VARCHAR
+          - name: WEBLASTLOGIN
+            description: "Date and time of the last web login by the user."
+            data_type: TIMESTAMP
+          - name: PASSWORDREMINDERQUESTION
+            description: "Security question used for password reminders."
+            data_type: VARCHAR
+          - name: PASSWORDREMINDERANSWER
+            description: "Answer to the password reminder question."
+            data_type: VARCHAR
+          - name: FORCEPASSWORDCHANGE
+            description: "Flag to force user to change password on next login."
+            data_type: BOOLEAN
+          - name: TNCACCEPTDATE
+            description: "Date of acceptance of the latest terms and conditions."
+            data_type: TIMESTAMP
+          - name: UPDATESOURCE
+            description: "Source of the update."
+            data_type: VARCHAR
+          - name: NOTES
+            description: "Additional notes about the person."
+            data_type: TEXT
+          - name: CORPORATIONID
+            description: "PID for corporation affiliation, if any."
+            data_type: UUID
+          - name: LEGALWARNINGNOTES
+            description: "Legal warnings or notes associated with the person."
+            data_type: TEXT
+          - name: INTRODUCEDBYNAME
+            description: "Name of the person introducing this individual."
+            data_type: VARCHAR
+          - name: TNCVERSIONID
+            description: "Version ID of the terms and conditions."
+            data_type: VARCHAR
+          - name: CONTACTPREFERENCES
+            description: "Contact methods preferred by the person."
+            data_type: VARCHAR
+          - name: FIRSTCONTACTDATE
+            description: "Date of the first recorded contact with the person."
+            data_type: TIMESTAMP
+          - name: IS18ATFIRSTCONTACT
+            description: "Indicates if the person was at least 18 at the time of first contact."
+            data_type: BOOLEAN
+          - name: FIRSTCONTACTSOURCE
+            description: "Source or method of the first contact (e.g., ATEVENT)."
+            data_type: VARCHAR
+          - name: INTRODUCEDBYFIRSTNAME
+            description: "First name of the person who introduced the individual."
+            data_type: VARCHAR
+          - name: INITIALS
+            description: "Person's initials, used as a shorthand."
+            data_type: VARCHAR
+          - name: LEADERSORTORDER
+            description: "Sort order value used for prioritizing leaders."
+            data_type: INT
+          - name: CONSENTVERSIONID
+            description: "ID of the consent version agreed to."
+            data_type: UUID
+          - name: COUNTRYOFCONSENT
+            description: "Country where consent was given."
+            data_type: VARCHAR
+          - name: CONSENTSIGNATUREDATE
+            description: "Date the consent was signed."
+            data_type: TIMESTAMP
+          - name: ONVACATION
+            description: "Indicates if the person is currently on vacation."
+            data_type: BOOLEAN
+          - name: EFFECTIVEVACATIONSTARTDATE
+            description: "Start date for vacation period."
+            data_type: TIMESTAMP
+          - name: PROFILEPICTURE
+            description: "Link to the person’s profile picture."
+            data_type: VARCHAR
+          - name: IMPERSONATIONID
+            description: "ID used for impersonation."
+            data_type: UUID
+          - name: TAXID
+            description: "Tax identification number."
+            data_type: VARCHAR
+          - name: BANKINGLOCATIONID
+            description: "ID of the banking location for transactions."
+            data_type: UUID
+          - name: ACTIVE
+            description: "Indicates if the record is active."
+            data_type: BOOLEAN
+          - name: CREATEDBYPID
+            description: "PID of the user who created the record."
+            data_type: UUID
+          - name: LASTUPDATEDBYPID
+            description: "PID of the user who last updated the record."
+            data_type: UUID
+          - name: HOMECENTERID
+            description: "ID of the center or branch associated with the individual."
+            data_type: UUID
+          - name: SCHEDULERGROUPID
+            description: "Group ID for scheduling activities."
+            data_type: UUID
+          - name: FIRSTNAMEEXTENDED1
+            description: "Extended or alternative first name, if applicable."
+            data_type: VARCHAR
+          - name: FIRSTNAMEEXTENDED2
+            description: "Second extended alternative first name, if applicable."
+            data_type: VARCHAR
+          - name: LASTNAMEEXTENDED1
+            description: "Extended or alternative last name, if applicable."
+            data_type: VARCHAR
+          - name: LASTNAMEEXTENDED2
+            description: "Second extended alternative last name, if applicable."
+            data_type: VARCHAR
+          - name: CREATEDBYCENTERID
+            description: "ID of the center where the record was created."
+            data_type: VARCHAR
+          - name: GRADUATED
+            description: "Indicates if the person has completed the program or course."
+            data_type: BOOLEAN
+          - name: EXTERNALREFERENCES
+            description: "Indicates desires of a person externally."
+            data_type: VARCHAR
